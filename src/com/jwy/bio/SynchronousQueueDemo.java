@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 同步队列，只存储一个元素
+ * 消费一个才能再存一个
  */
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
