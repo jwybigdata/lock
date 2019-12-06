@@ -10,6 +10,12 @@ import java.util.concurrent.*;
  * @Auther: jwy
  * @Date: 2019/12/06/12:08
  * @Description:线程池的创建,工作中不用Executors创建线程
+ * 拒绝策略
+ * AbortPolicy：默认，抛出RejectedExecutionException异常
+ * CallerRunsPolicy:不抛异常，将任务回退调用者
+ * DiscardOldestPolicy():抛弃队列中持续时间最长的任务
+ * DiscardPolicy():直接抛弃任务
+ *
  */
 public class ThreaPoolDemo {
     public static void main(String[] args) {
@@ -26,7 +32,7 @@ public class ThreaPoolDemo {
                 TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>(3),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.AbortPolicy());
+                new ThreadPoolExecutor.DiscardPolicy());
 
 
 
